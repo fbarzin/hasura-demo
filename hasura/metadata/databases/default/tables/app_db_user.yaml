@@ -1,0 +1,39 @@
+table:
+  name: user
+  schema: app_db
+configuration:
+  column_config:
+    created_at:
+      custom_name: createdAt
+    first_name:
+      custom_name: firstName
+    last_name:
+      custom_name: lastName
+    updated_at:
+      custom_name: updatedAt
+  custom_column_names:
+    created_at: createdAt
+    first_name: firstName
+    last_name: lastName
+    updated_at: updatedAt
+  custom_name: appDbUser
+  custom_root_fields:
+    delete: appDbUserDelete
+    delete_by_pk: appDbUserDeleteByPk
+    insert: appDbUserInsert
+    insert_one: appDbUserInsertOne
+    select: appDbUser
+    select_aggregate: appDbUserAggregate
+    select_by_pk: appDbUserByPk
+    select_stream: appDbUserStream
+    update: appDbUserUpdate
+    update_by_pk: appDbUserUpdateByPk
+    update_many: appDbUserUpdateMany
+array_relationships:
+  - name: todos
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: todo
+          schema: app_db

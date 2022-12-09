@@ -1,0 +1,35 @@
+table:
+  name: todo
+  schema: app_db
+configuration:
+  column_config:
+    created_at:
+      custom_name: createdAt
+    is_completed:
+      custom_name: isCompleted
+    updated_at:
+      custom_name: updatedAt
+    user_id:
+      custom_name: userId
+  custom_column_names:
+    created_at: createdAt
+    is_completed: isCompleted
+    updated_at: updatedAt
+    user_id: userId
+  custom_name: appDbToDo
+  custom_root_fields:
+    delete: appDbToDoDelete
+    delete_by_pk: appDbToDoDeleteByPk
+    insert: appDbToDoInsert
+    insert_one: appDbToDoInsertOne
+    select: appDbToDo
+    select_aggregate: appDbToDoAggregate
+    select_by_pk: appDbToDoByPk
+    select_stream: appDbToDoStream
+    update: appDbToDoUpdate
+    update_by_pk: appDbToDoUpdateByPk
+    update_many: appDbToDoUpdateMany
+object_relationships:
+  - name: user
+    using:
+      foreign_key_constraint_on: user_id
