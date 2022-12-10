@@ -1,6 +1,25 @@
-actions: []
+actions:
+  - name: login
+    definition:
+      kind: synchronous
+      handler: http://host.docker.internal:4000/login
+      request_transform:
+        body:
+          action: transform
+          template: |-
+            {
+              "email": "{{$body.input.email}}",
+              "password": "{{$body.input.password}}"
+            }
+        template_engine: Kriti
+        version: 2
+    permissions:
+      - role: anonymous
+    comment: Logs the user into the application
 custom_types:
   enums: []
-  input_objects: []
-  objects: []
+  input_objects:
+    - name: LoginInput
+  objects:
+    - name: LoginOutput
   scalars: []
