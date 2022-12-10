@@ -1,1 +1,6 @@
-[]
+- name: API Server
+  definition:
+    url: http://host.docker.internal:4000/graphql
+    timeout_seconds: 60
+    customization: {}
+    forward_client_headers: true
