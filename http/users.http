@@ -1,0 +1,42 @@
+@localhost = http://localhost:4000
+
+### Register a new user
+POST {{localhost}}/graphql HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+
+mutation registerUser {
+    registerUser(
+        registerUserInput: {
+            email: "farzad@bexrealty.com",
+            firstName: "Farzad",
+            lastName: "Barzin",
+            password: "pass123"
+        }
+    ) {
+        token
+    }
+}
+
+### Login
+POST {{localhost}}/graphql HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+
+mutation loginUser {
+    loginUser(
+        email: "farzad@bexrealty.com",
+        password: "pass123"
+    ) {
+        token
+    }
+}
+
+### Login with REST
+POST {{localhost}}/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "farzad@bexrealty.com",
+    "password": "pass123"
+}
