@@ -1,0 +1,23 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Mutation {
+  loginUser(email: String!, password: String!): RegisterUserOutput!
+  registerUser(registerUserInput: RegisterUserInput!): RegisterUserOutput!
+}
+
+type Query {
+  hello: String!
+}
+
+input RegisterUserInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+}
+
+type RegisterUserOutput {
+  token: String!
+}
